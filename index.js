@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer"); 
 const fs = require('fs');
-const {generateMarkDown} = require(',/utils/generateMarkdown');
+const {generateMarkDown} = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = 
 inquirer
@@ -36,7 +36,7 @@ inquirer
     },
     {
         type: 'input',
-        name: 'instal',
+        name: 'install',
         messgae:'what command should be run to install dependencies?',
     },
     {

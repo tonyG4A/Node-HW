@@ -1,79 +1,69 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Function to return a license badge based on the license type
 function renderLicenseBadge(license) {
-    return `![Github License](https://img.shields.io/badge/${license}-blue)`
+  return `![Github License](https://img.shields.io/badge/license-${license}-blue.svg)`
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Function to return the license link
 function renderLicenseLink(license) {
-  return `https://opensource.org/license/${license}/`
+return `https://opensource.org/licenses/${license}`
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Function to return the license section of README
 function renderLicenseSection(license) {
-  return `This project is licensed under the ${license} license ${renderLicenseBadge(license)}.
-  The license link for this project is ${renderLicenseLink(license)}`
+return `This project is licensed under the ${license} license. ${renderLicenseBadge(license)}.
+The license link for this project is [here](${renderLicenseLink(license)}).`
 }
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-  # ${data.projectName} README.md
-  ![Github License](https://img.shields.io/badge/${data.license}-blue)
+return `
+# ${data.title}
 
-  ## Description
+## Description
 
-  ${data.description}
+${data.description}
 
-  ## Table Of Contents 
+## Table Of Contents
 
-  * [Installation](#Installation)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
 
-  * [Usage](#usage)
-  
-  * [License](#license)
+## Installation
 
-  * [Contributing](#contributing)
+To install necessary dependencies, run the following command:
 
-  * [Tests](#tests)
+\`\`\`
+${data.install}
+\`\`\`
 
-  * [Questions](#questions)
+## Usage
 
-  ## Installation
+${data.usage}
 
-  To install necessary dependencies, run the following command:
+## License
 
-  ${data.install}
+${renderLicenseSection(data.license)}
 
-  ## Usage
+## Contributing
 
-  ${data.usage}
+${data.contributing}
 
-  ## License
+## Tests
 
-  ${renderLicenseSection(data.license)}
+To run tests, use the following command:
 
-  ## Contributing 
+\`\`\`
+${data.test}
+\`\`\`
 
-  ${data.contributing}
+## Questions
 
-  ## Tests
-
-  To run tests run the following command:
-
-  ${data.tests}
-
-  ## Questions
-
-  if you have any questions about the repo, Please feel free to open a issue or contact me directly at ${data.email}
-  You can find more of my work at https://github.com/${data.username}
-
-
-
+If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work on [GitHub](https://github.com/${data.username}).
 `;
 }
 
-module.exports = { generateMarkdown 
-};
+module.exports = { generateMarkdown };
